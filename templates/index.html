@@ -1,0 +1,12 @@
+{% extends "base_index.html" %}
+{% block body_block %}
+  <div class="jumbotron">
+    <h1>Tiko Energy</h1>
+    {% if user.is_authenticated %}
+        <h2>Hello {{ user.username }}</h2>
+        <a class="btn btn-primary" href="/graph" role="button">Graph page</a>
+    {% else %}
+        <h2>Register or Login if you'd like to</h2>
+    {% endif %}
+  </div>
+{% endblock %}
