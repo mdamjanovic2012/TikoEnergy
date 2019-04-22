@@ -23,6 +23,18 @@ pip install requirements/requirements.txt
 
   Location: http://127.0.0.1:8000/
  
+## GULP
+
+  Gulp file: static/gulpfile.js
+  
+  Requirements:
+    
+    * NPM
+    * gulp
+    * gulp-eslint
+    * eslint
+    * gulp-plumber
+  
 ## Authors
 
 * **Milos Damjanovic** - (https://github.com/mdamjanovic2012)
