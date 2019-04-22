@@ -1,6 +1,6 @@
 var jokeArray = [];
 var setIntervalFlag = true;
-for (i = 0; i < 10; i++) {
+for (var i = 0; i < 10; i++) {
   jokeArray.push(0);
 }
 
@@ -14,10 +14,10 @@ function loadChart() { //fetches json data & calls displayChart() to render grap
     if (request.readyState == 4 && request.status == 200) {
       jokeData = JSON.parse(request.responseText);
       jokeLength = jokeData.value.joke.length;
-      console.log(jokeLength);
+      // console.log(jokeLength);
       jokeArray.shift();
       jokeArray.push(jokeLength);
-      displayChrt(jokeArray);
+      displayChart(jokeArray);
     }
   };
   request.open('GET', requestURL);
@@ -27,19 +27,18 @@ function loadChart() { //fetches json data & calls displayChart() to render grap
 
 function setIntervalOnce(){
   if (setIntervalFlag){
-    setInterval(loadChart, 1000);
+    setInterval(loadChart, 1002);
     setIntervalFlag = false
   }
 
 }
 
-function displayChrt(jokeArray) { // to be called by loadChart() to render live chart
+function displayChart(jokeArray) { // to be called by loadChart() to render live chart
   var ctx = document.getElementById('myGraph').getContext('2d');
   new Chart(ctx, {
     type: 'line',
     showTooltips: false,
     events: ['click'],
-
     data: {
       labels: ['-9', '-8', '-7', '-6', '-5', '-4', '-3', '-2', '-1', '0'],
       datasets: [{
@@ -48,5 +47,6 @@ function displayChrt(jokeArray) { // to be called by loadChart() to render live 
         backgroundColor: "rgba(153,255,51,0.4)"
       }]
     }
+
   });
 }
